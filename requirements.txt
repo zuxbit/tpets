@@ -1,0 +1,4 @@
+future
+django==1.11.2
+jinja2
+djangorestframework
