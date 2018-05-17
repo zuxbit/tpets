@@ -14,7 +14,7 @@ STATICFILES_FINDERS = [
 
 # ---- deployment-specific settings ---- #
 DEBUG = True
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'tpets.local']
 
 ADMINS = [('jahid', 'jahidulhamid@gmail.com'), ]
 MANAGERS = []
