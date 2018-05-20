@@ -1,3 +1,4 @@
+__metaclass__ = type
 from django.contrib import admin as django_admin
 from project.admin import owners_admin, admin
 from .models import Pet
@@ -18,7 +19,7 @@ class PetOwnerAdmin(PetAdmin):
 
     def get_queryset(self, request):
         # restrict pets to only owner's ones
-        return super().get_queryset(request).filter(owner=request.user)
+        return super(PetOwnerAdmin, self).get_queryset(request).filter(owner=request.user)
 
     # set necessary permissions by default
     def has_module_permission(self, *args, **kwargs):
@@ -35,6 +36,6 @@ class PetOwnerAdmin(PetAdmin):
 
     def save_model(self, request, obj, *args, **kwargs):
         obj.owner = request.user  # set owner automatically
-        super().save_model(request, obj, *args, **kwargs)
+        super(PetOwnerAdmin, self).save_model(request, obj, *args, **kwargs)
 
 owners_admin.register(Pet, PetOwnerAdmin)
