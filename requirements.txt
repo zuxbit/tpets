@@ -1,4 +1,4 @@
 future
-django==1.11.2
+django==2.2.24
 jinja2
 djangorestframework
